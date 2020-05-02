@@ -108,6 +108,20 @@ bool String::operator<(const char* other) const
 	return false;
 }
 
+bool String::operator>(const String& other) const
+{
+	if (operator<(other) || operator==(other))
+		return false;
+	return true;
+}
+
+bool String::operator>(const char* other) const
+{
+	if (operator<(other) || operator==(other))
+		return false;
+	return true;
+}
+
 std::ostream& operator<<(std::ostream& stream, const String& s)
 {
 	stream << s.m_buffer;
