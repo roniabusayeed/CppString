@@ -81,6 +81,16 @@ bool String::operator==(const char* other) const
 	return true;
 }
 
+bool String::operator!=(const String& other) const
+{
+	return !operator==(other);
+}
+
+bool String::operator!=(const char* other) const
+{
+	return !operator==(other);
+}
+
 bool String::operator<(const String& other) const
 {
 	size_t min_size = m_size < other.m_size ? m_size : other.m_size;
