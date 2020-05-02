@@ -132,6 +132,16 @@ bool String::operator>(const char* other) const
 	return true;
 }
 
+bool String::operator>=(const String& other) const
+{
+	return operator>(other) || operator==(other);
+}
+
+bool String::operator>=(const char* other) const
+{
+	return operator>(other) || operator==(other);
+}
+
 std::ostream& operator<<(std::ostream& stream, const String& s)
 {
 	stream << s.m_buffer;
