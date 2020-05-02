@@ -55,6 +55,19 @@ const char& String::operator[](unsigned int index) const
 	return m_buffer[index];
 }
 
+bool String::operator==(const String& other) const
+{
+	if (m_size != other.m_size)
+		return false;
+
+	for (int i = 0; i < m_size; i++)
+	{
+		if (m_buffer[i] != other.m_buffer[i])
+			return false;
+	}
+	return true;
+}
+
 std::ostream& operator<<(std::ostream& stream, const String& s)
 {
 	stream << s.m_buffer;

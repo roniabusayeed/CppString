@@ -17,4 +17,5 @@ public:
 	size_t Size()const;
 	char& operator[](unsigned int index);
 	const char& operator[](unsigned int index) const;
+	bool operator==(const String& other)const;
 };
