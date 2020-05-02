@@ -68,6 +68,19 @@ bool String::operator==(const String& other) const
 	return true;
 }
 
+bool String::operator==(const char* other) const
+{
+	if (m_size != strlen(other))
+		return false;
+
+	for (int i = 0; i < m_size; i++)
+	{
+		if (m_buffer[i] != other[i])
+			return false;
+	}
+	return true;
+}
+
 bool String::operator<(const String& other) const
 {
 	size_t min_size = m_size < other.m_size ? m_size : other.m_size;

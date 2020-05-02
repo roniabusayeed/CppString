@@ -18,6 +18,7 @@ public:
 	char& operator[](unsigned int index);
 	const char& operator[](unsigned int index) const;
 	bool operator==(const String& other)const;
+	bool operator==(const char* other)const;
 	bool operator<(const String& other)const;
 	bool operator<(const char* other)const;
 };
