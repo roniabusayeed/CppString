@@ -1,5 +1,6 @@
 #include "String.h"
 #include <cstring>
+#include <iostream>
 
 String::String(const char* s)
 {
@@ -37,4 +38,10 @@ String& String::operator=(const String& other)
 
 	// Allow assignment chaining.
 	return *this;
+}
+
+std::ostream& operator<<(std::ostream& stream, const String& s)
+{
+	stream << s.m_buffer;
+	return stream;
 }

@@ -1,10 +1,14 @@
 #pragma once
 
+#include <iostream>
+
 class String
 {
 private:
 	size_t m_size;
 	char* m_buffer;
+
+	friend std::ostream& operator<<(std::ostream& stream, const String& s);
 public:
 	String(const char* s);
 	~String();
