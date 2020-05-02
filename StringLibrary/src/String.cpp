@@ -68,6 +68,33 @@ bool String::operator==(const String& other) const
 	return true;
 }
 
+bool String::operator<(const String& other) const
+{
+	size_t min_size = m_size < other.m_size ? m_size : other.m_size;
+	for (int i = 0; i < min_size; i++)
+	{
+		if (m_buffer[i] > other.m_buffer[i])
+			return false;
+	}
+	if (m_size < other.m_size)
+		return true;
+	return false;
+}
+
+bool String::operator<(const char* other) const
+{
+	size_t other_size = strlen(other);
+	size_t min_size = m_size < other_size ? m_size : other_size;
+	for (int i = 0; i < min_size; i++)
+	{
+		if (m_buffer[i] > other[i])
+			return false;
+	}
+	if (m_size < other_size)
+		return true;
+	return false;
+}
+
 std::ostream& operator<<(std::ostream& stream, const String& s)
 {
 	stream << s.m_buffer;
