@@ -113,6 +113,11 @@ bool String::operator<=(const String& other) const
 	return operator<(other) || operator==(other);
 }
 
+bool String::operator<=(const char* other) const
+{
+	return operator<(other) || operator==(other);
+}
+
 bool String::operator>(const String& other) const
 {
 	if (operator<(other) || operator==(other))
