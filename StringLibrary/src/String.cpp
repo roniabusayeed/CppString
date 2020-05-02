@@ -40,6 +40,21 @@ String& String::operator=(const String& other)
 	return *this;
 }
 
+size_t String::Size() const
+{
+	return m_size;
+}
+
+char& String::operator[](unsigned int index)
+{
+	return m_buffer[index];
+}
+
+const char& String::operator[](unsigned int index) const
+{
+	return m_buffer[index];
+}
+
 std::ostream& operator<<(std::ostream& stream, const String& s)
 {
 	stream << s.m_buffer;
