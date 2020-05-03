@@ -2,6 +2,13 @@
 #include <cstring>
 #include <iostream>
 
+String::String()
+	: m_size(0)
+{
+	m_buffer = new char[m_size + 1];
+	m_buffer[m_size] = 0;	// null-terminating m_buffer
+}
+
 String::String(const char* s)
 {
 	m_size = strlen(s);
@@ -185,6 +192,13 @@ void String::append(const char* other)
 	m_buffer = buffer;
 
 	m_size += other_size;
+}
+
+String String::operator+(const String& other) const
+{
+	String s(*this);
+	s.append(other);
+	return s;
 }
 
 std::ostream& operator<<(std::ostream& stream, const String& s)

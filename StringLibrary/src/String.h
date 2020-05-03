@@ -10,6 +10,7 @@ private:
 
 	friend std::ostream& operator<<(std::ostream& stream, const String& s);
 public:
+	String();
 	String(const char* s);
 	~String();
 	String(const String& other);
@@ -32,4 +33,5 @@ public:
 	void reverse();
 	void append(const String& other);
 	void append(const char* other);
+	String operator+(const String& other)const;
 };
