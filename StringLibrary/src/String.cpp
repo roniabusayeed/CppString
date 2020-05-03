@@ -152,6 +152,16 @@ bool String::operator>=(const char* other) const
 	return operator>(other) || operator==(other);
 }
 
+void String::reverse()
+{
+	for (int i = 0, n = m_size / 2; i < n; i++)
+	{
+		char temp = m_buffer[i];
+		m_buffer[i] = m_buffer[m_size - 1 - i];
+		m_buffer[m_size - 1 - i] = temp;
+	}
+}
+
 std::ostream& operator<<(std::ostream& stream, const String& s)
 {
 	stream << s.m_buffer;
