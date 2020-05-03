@@ -36,4 +36,5 @@ public:
 	String operator+(const String& other)const;
 	String operator+(const char* other)const;
 	void insert(size_t off, char c);
+	bool empty()const;
 };

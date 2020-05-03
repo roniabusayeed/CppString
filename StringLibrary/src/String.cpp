@@ -225,6 +225,11 @@ void String::insert(size_t off, char c)
 	m_size++;
 }
 
+bool String::empty() const
+{
+	return m_size == 0;
+}
+
 std::ostream& operator<<(std::ostream& stream, const String& s)
 {
 	stream << s.m_buffer;
