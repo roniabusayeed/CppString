@@ -35,4 +35,5 @@ public:
 	void append(const char* other);
 	String operator+(const String& other)const;
 	String operator+(const char* other)const;
+	void insert(size_t off, char c);
 };

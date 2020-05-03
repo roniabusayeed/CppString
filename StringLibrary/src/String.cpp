@@ -208,6 +208,23 @@ String String::operator+(const char* other) const
 	return s;
 }
 
+void String::insert(size_t off, char c)
+{
+	// Bounds checking.
+	if (off < 0 || off > m_size)
+		return;
+
+	char* buffer = new char[m_size + 2];	// 1 more byte for null-terminator.
+	memcpy(buffer, m_buffer, off);
+	buffer[off] = c;
+	memcpy(buffer + off + 1, m_buffer + off, m_size - off + 1);    // null-terminating too 
+																   // by copying extra one byte
+	delete[] m_buffer;
+	m_buffer = buffer;
+
+	m_size++;
+}
+
 std::ostream& operator<<(std::ostream& stream, const String& s)
 {
 	stream << s.m_buffer;
