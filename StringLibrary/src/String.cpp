@@ -68,6 +68,7 @@ bool String::operator==(const String& other) const
 	return true;
 }
 
+
 bool String::operator==(const char* other) const
 {
 	if (m_size != strlen(other))
@@ -160,6 +161,15 @@ void String::reverse()
 		m_buffer[i] = m_buffer[m_size - 1 - i];
 		m_buffer[m_size - 1 - i] = temp;
 	}
+}
+
+void String::append(const String& other)
+{
+	char* buffer = new char[m_size + other.m_size + 1];
+	memcpy(buffer, m_buffer, m_size);
+	memcpy(buffer + m_size, other.m_buffer, other.m_size + 1);
+	delete[] m_buffer;
+	m_buffer = buffer;
 }
 
 std::ostream& operator<<(std::ostream& stream, const String& s)
