@@ -31,4 +31,5 @@ public:
 	bool operator>=(const char* other)const;
 	void reverse();
 	void append(const String& other);
+	void append(const char* other);
 };

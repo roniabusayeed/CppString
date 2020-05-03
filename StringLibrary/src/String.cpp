@@ -172,6 +172,19 @@ void String::append(const String& other)
 	m_buffer = buffer;
 }
 
+void String::append(const char* other)
+{
+	size_t other_size = strlen(other);
+	char* buffer = new char[m_size + other_size + 1];
+	memcpy(buffer, m_buffer, m_size);
+	memcpy(buffer + m_size, other, other_size);
+	buffer[m_size + other_size] = 0;	// null-terminate buffer.
+	delete[] m_buffer;
+	m_buffer = buffer;
+
+	m_size = m_size + other_size;
+}
+
 std::ostream& operator<<(std::ostream& stream, const String& s)
 {
 	stream << s.m_buffer;
