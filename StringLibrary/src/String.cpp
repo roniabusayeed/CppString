@@ -170,6 +170,8 @@ void String::append(const String& other)
 	memcpy(buffer + m_size, other.m_buffer, other.m_size + 1);
 	delete[] m_buffer;
 	m_buffer = buffer;
+
+	m_size += other.m_size;
 }
 
 void String::append(const char* other)
@@ -182,7 +184,7 @@ void String::append(const char* other)
 	delete[] m_buffer;
 	m_buffer = buffer;
 
-	m_size = m_size + other_size;
+	m_size += other_size;
 }
 
 std::ostream& operator<<(std::ostream& stream, const String& s)
