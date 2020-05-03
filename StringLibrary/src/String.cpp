@@ -201,6 +201,13 @@ String String::operator+(const String& other) const
 	return s;
 }
 
+String String::operator+(const char* other) const
+{
+	String s(*this);
+	s.append(other);
+	return s;
+}
+
 std::ostream& operator<<(std::ostream& stream, const String& s)
 {
 	stream << s.m_buffer;
