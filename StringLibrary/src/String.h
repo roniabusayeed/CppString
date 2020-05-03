@@ -14,7 +14,7 @@ public:
 	~String();
 	String(const String& other);
 	String& operator=(const String& other);
-	size_t Size()const;
+	size_t size()const;
 	char& operator[](unsigned int index);
 	const char& operator[](unsigned int index) const;
 	bool operator==(const String& other)const;

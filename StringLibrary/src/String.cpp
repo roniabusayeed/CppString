@@ -40,7 +40,7 @@ String& String::operator=(const String& other)
 	return *this;
 }
 
-size_t String::Size() const
+size_t String::size() const
 {
 	return m_size;
 }
