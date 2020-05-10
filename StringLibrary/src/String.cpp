@@ -230,6 +230,18 @@ bool String::empty() const
     return m_size == 0;
 }
 
+bool String::contains(const String& other) const
+{
+    if (m_size < other.m_size)
+        return false;
+    for (int i = 0; i < m_size - other.m_size + 1; i++)
+    {
+        if (strncmp(m_buffer + i, other.m_buffer, other.m_size) == 0)
+            return true;
+    }
+    return false;
+}
+
 std::ostream& operator<<(std::ostream& stream, const String& s)
 {
     stream << s.m_buffer;

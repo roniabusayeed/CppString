@@ -37,4 +37,5 @@ public:
 	String operator+(const char* other)const;
 	void insert(size_t off, char c);
 	bool empty()const;
+	bool contains(const String& other)const;
 };
