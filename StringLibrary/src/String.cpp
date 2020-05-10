@@ -242,6 +242,29 @@ bool String::contains(const String& other) const
     return false;
 }
 
+bool String::contains(const char* other) const
+{
+    size_t other_size = strlen(other);
+    if (m_size < other_size)
+        return false;
+    for (int i = 0; i < m_size - other_size + 1; i++)
+    {
+        if (strncmp(m_buffer + i, other, other_size) == 0)
+            return true;
+    }
+    return false;
+}
+
+bool String::contains(char c) const
+{
+    for (int i = 0; i < m_size; i++)
+    {
+        if (m_buffer[i] == c)
+            return true;
+    }
+    return false;
+}
+
 std::ostream& operator<<(std::ostream& stream, const String& s)
 {
     stream << s.m_buffer;

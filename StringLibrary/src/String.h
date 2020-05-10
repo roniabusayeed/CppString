@@ -38,4 +38,6 @@ public:
 	void insert(size_t off, char c);
 	bool empty()const;
 	bool contains(const String& other)const;
+	bool contains(const char* other)const;
+	bool contains(char c)const;
 };
