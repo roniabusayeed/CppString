@@ -265,6 +265,20 @@ bool String::contains(char c) const
     return false;
 }
 
+String String::substr(int start, int stop)const
+{
+    // TODO: Do bounds checking.
+    if (start < 0 || start > m_size - 1 ||
+        stop < start || stop > m_size)
+        __debugbreak();
+
+    const size_t size = stop - start;
+    char* buffer = new char[size + 1];
+    memcpy(buffer, m_buffer + start, size);
+    buffer[size] = 0;
+    return buffer;  // Calling implicit constructor that takes a const char*.
+}
+
 std::ostream& operator<<(std::ostream& stream, const String& s)
 {
     stream << s.m_buffer;

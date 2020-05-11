@@ -40,4 +40,5 @@ public:
 	bool contains(const String& other)const;
 	bool contains(const char* other)const;
 	bool contains(char c)const;
+	String substr(int start, int stop)const;
 };
