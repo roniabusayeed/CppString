@@ -170,6 +170,13 @@ void String::reverse()
     }
 }
 
+String String::reversed() const
+{
+    String str = *this;
+    str.reverse();
+    return str;
+}
+
 void String::append(const String& other)
 {
     char* buffer = new char[m_size + other.m_size + 1];
